@@ -89,7 +89,7 @@ void OscapCapabilities::parse(const QString& mmv)
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
     const QStringList firstLine = lines[0].split(' ', Qt::SkipEmptyParts);
 #else
-    const QStringList firstLine = lines[0].split(' ', QString::SkipEmptyParts);
+    const QStringList firstLine = lines[0].split(' ', Qt::SkipEmptyParts);
 #endif
     const QString& versionCandidate = firstLine.last();
 

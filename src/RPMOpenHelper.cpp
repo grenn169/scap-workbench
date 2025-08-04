@@ -57,7 +57,7 @@ RPMOpenHelper::RPMOpenHelper(const QString& path)
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
         QStringList lines = proc.getStdErrContents().split('\n', Qt::SkipEmptyParts);
 #else
-        QStringList lines = proc.getStdErrContents().split('\n', QString::SkipEmptyParts);
+        QStringList lines = proc.getStdErrContents().split('\n', Qt::SkipEmptyParts);
 #endif
         for (QStringList::const_iterator it = lines.constBegin(); it != lines.constEnd(); ++it)
         {

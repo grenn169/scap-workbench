@@ -649,7 +649,7 @@ void TailoringWindow::deserializeCollapsedItems()
         mCollapsedItemIds = QSet<QString>(list.begin(), list.end());
     #else
         // support older versions where deprecation warning is not fatal
-        mCollapsedItemIds = QSet<QString>::fromList(list);
+        mCollapsedItemIds = QSet<QString>(list.begin(), list.end());
     #endif
 }
 
@@ -666,7 +666,7 @@ void TailoringWindow::serializeCollapsedItems()
             mQSettings->setValue(getQSettingsKey(), QVariant(mCollapsedItemIds.values()));
         #else
             // support older versions where deprecation warning is not fatal
-            mQSettings->setValue(getQSettingsKey(), QVariant(mCollapsedItemIds.toList()));
+            mQSettings->setValue(getQSettingsKey(), QVariant(mCollapsedItemIds.values()));
         #endif
         mQSettings->setValue(getQSettingsKey() + "_lastUsed", QVariant(QDateTime::currentDateTime()));
     }

@@ -90,7 +90,7 @@ void SaveAsRPMDialog::slotFinished(int result)
         closureOrdered.append(closure.values());
     #else
         // support older versions where deprecation warning is not fatal
-        closureOrdered.append(closure.toList());
+        closureOrdered.append(closure.values());
     #endif
 
     const QDir cwd = ScanningSession::getCommonAncestorDirectory(closure);
