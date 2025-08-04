@@ -1,3 +1,34 @@
+# scap-workbench – Fedora 42 Compatibility Fork
+
+This is a community-maintained fork of [`scap-workbench`](https://github.com/OpenSCAP/scap-workbench) modified to compile and run successfully on **Fedora 42** with:
+
+- **Qt 6**
+- **OpenSCAP 1.4+**
+- GCC with `-Werror` enabled
+
+## ✅ What’s fixed
+
+- Deprecated `QString::SkipEmptyParts` → `Qt::SkipEmptyParts`
+- Deprecated `QSet::toList()` and `QSet::fromList()` → replaced with `values()` / range constructors
+- Range-for loops over `QString` → now use reference (`const QString&`)
+- Updated `xccdf_policy_generate_fix()` signature to match OpenSCAP 1.4+
+
+## 🛠 How to build
+
+```bash
+git clone https://github.com/grenn169/scap-workbench.git
+cd scap-workbench
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+sudo make install
+
+## 🧩 Optional: Patch script
+If you want to apply all compatibility changes to a clean upstream source:
+
+```bash
+./patch-for-fedora42.sh
+
 SCAP Workbench
 ==============
 
