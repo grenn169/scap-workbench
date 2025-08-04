@@ -21,13 +21,17 @@ cd scap-workbench
 mkdir build && cd build
 cmake ..
 make -j$(nproc)
+
 sudo make install
+```
 
 ## 🧩 Optional: Patch script
 If you want to apply all compatibility changes to a clean upstream source:
 
 ```bash
 ./patch-for-fedora42.sh
+```
+
 
 SCAP Workbench
 ==============
